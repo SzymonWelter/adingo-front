@@ -1,8 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import 'bootstrap/dist/css/bootstrap.css';
+import {App} from './App.jsx'
 
-const Index = () => {
-	return <div> Main page </div>;
-};
-
-ReactDOM.render(<Index />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
