@@ -1,4 +1,7 @@
 module.exports = {
+	resolve: {
+		extensions: ['.js', '.jsx']
+	},
 	entry: './src/index.js',
 	output: {
 		filename: 'bundle.js',
@@ -42,7 +45,7 @@ module.exports = {
 				loader: 'url?limit=10000&mimetype=image/svg+xml'
 			},
 		]
-	}
+	},
 }
 
 

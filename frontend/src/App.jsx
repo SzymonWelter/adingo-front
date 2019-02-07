@@ -1,42 +1,21 @@
 import React from 'react';
-import {Button} from "react-bootstrap";
-import {testActions} from "./actions/test.actions";
-import {connect} from 'react-redux';
+import {Router,Route} from 'react-router-dom'
+import {history} from "./helpers";
+import {PrivateRoute} from './components/PrivateRoute'
+import {Layout} from "./components/Layout";
+import {LoginPage} from "./components/LoginPage";
+import {HomePage} from "./components/HomePage";
 
-class App extends React.Component{
+export const App = () => {
+    return (
+        <Layout>
+            <Router history={history}>
+                <div>
+                    <Route exact path={"/login"} component={LoginPage}/>
+                    <PrivateRoute exact path={"/"} component={HomePage}/>
+                </div>
+            </Router>
+        </Layout>
+    );
+};
 
-    constructor(props){
-        super(props);
-        this.handleClickA =this.handleClickA.bind(this);
-        this.handleClickB =this.handleClickB.bind(this);
-    }
-    handleClickA(e){
-        e.preventDefault();
-        const {dispatch} = this.props;
-        dispatch(testActions.red());
-    }
-    handleClickB(e){
-        e.preventDefault();
-        const {dispatch} = this.props;
-        dispatch(testActions.green());
-    }
-
-    render() {
-        const {test} =this.props;
-        return (
-            <div>
-                <Button variant={test.type} onClick={this.handleClickA}>RED</Button>
-                <Button variant={test.type} onClick={this.handleClickB}>GREEN</Button>
-            </div>
-        )
-    }
-}
-function mapStateToProps(state) {
-    const { test } = state;
-    return {
-        test
-    };
-}
-
-const connectedApp = connect(mapStateToProps)(App);
-export { connectedApp as App };
