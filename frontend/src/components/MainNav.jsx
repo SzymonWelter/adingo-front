@@ -1,10 +1,10 @@
 import React from 'react';
-import {Navbar, Button, Form, Nav, FormControl, Container, Row} from "react-bootstrap";
+import {Navbar, Button, Container} from "react-bootstrap";
 
 export const MainNav = (props) => {
     return (
-        <Container fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
-            <Navbar bg="dark" variant="dark">
+        <Container fluid style={{ paddingLeft: 0, paddingRight: 0}}>
+            <Navbar bg="dark" variant="dark" >
                 <Navbar.Collapse className="justify-content-center">
                     <Navbar.Brand href="#home">LOGO</Navbar.Brand>
                 </Navbar.Collapse>

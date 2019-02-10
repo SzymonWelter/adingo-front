@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --content-base ./public",
-    "build": "webpack --mode production --open"
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.2.1",
+    "history": "^4.7.2",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.7",
     "react": "^16.8.0",

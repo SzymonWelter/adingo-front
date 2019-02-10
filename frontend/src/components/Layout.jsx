@@ -1,6 +1,6 @@
 import React from 'react';
 import {Container, Row} from "react-bootstrap";
-import {MainNav} from "./MainNav";
+import {MainNav} from "./";
 
 export const Layout = (props) => {
     return (
