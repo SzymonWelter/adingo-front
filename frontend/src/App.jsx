@@ -1,10 +1,19 @@
 import React from 'react';
-import {Button} from "react-bootstrap";
+import {Router,Route} from 'react-router-dom'
+import {history} from "./helpers";
+import {PrivateRoute,Layout,IntroPage,HomePage} from './components'
 
-export function App(props) {
+
+export const App = () => {
     return (
-        <div>
-            <Button>Test</Button>
-        </div>
-    )
-}
+        <Layout>
+            <Router history={history}>
+                <div>
+                    <PrivateRoute exact path={"/"} component={HomePage}/>
+                    <Route path={"/intro"} component={IntroPage}/>
+                </div>
+            </Router>
+        </Layout>
+    );
+};
+

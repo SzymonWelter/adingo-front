@@ -1,8 +1,14 @@
 module.exports = {
+	resolve: {
+		extensions: ['.js', '.jsx']
+	},
 	entry: './src/index.js',
 	output: {
 		filename: 'bundle.js',
 		path: __dirname + '/public'
+	},
+	devServer: {
+		historyApiFallback: true
 	},
 	module: {
 		rules: [
@@ -42,7 +48,7 @@ module.exports = {
 				loader: 'url?limit=10000&mimetype=image/svg+xml'
 			},
 		]
-	}
-}
+	},
+};
 
 
