@@ -3,7 +3,7 @@ import {Navbar, Button, Container, Row, Col} from "react-bootstrap";
 
 export const MainNav = (props) => {
     return (
-        <Container fluid style={{paddingLeft: 0, paddingRight: 0, marginBottom: 100}}>
+        <Container fluid style={{paddingLeft: 0, paddingRight: 0, marginBottom: 50}}>
             <Navbar bg="dark" variant="dark">
                 <Navbar.Collapse className="justify-content-center">
                     <Navbar.Brand href="/">LOGO</Navbar.Brand>

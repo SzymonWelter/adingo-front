@@ -18,7 +18,7 @@ class IntroPage extends Component {
                                     alt="First item"
                                 />
                                 <Carousel.Caption>
-                                    <h3>First  label</h3>
+                                    <h3>First label</h3>
                                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                                 </Carousel.Caption>
                             </Carousel.Item>
@@ -49,7 +49,7 @@ class IntroPage extends Component {
                         </Carousel>
                     </Col>
                     <Col xs={12} md={6}>
-                        <Form style={{marginRight: 200}}>
+                        <Form>
                             <Card bordered={"light"} style={{padding: 10}}>
                                 <ModalTitle>Create your account</ModalTitle>
                                 <Form.Group controlId="formBasicEmail">
@@ -63,20 +63,21 @@ class IntroPage extends Component {
                                     <Form.Label>Username</Form.Label>
                                     <Form.Control placeholder="Enter username"/>
                                 </Form.Group>
+                                <Form.Row>
+                                    <Form.Group as={Col} controlId="formBasicPassword">
+                                        <Form.Label>Password</Form.Label>
+                                        <Form.Control type="password" placeholder="Password"/>
+                                    </Form.Group>
 
-                                <Form.Group controlId="formBasicPassword">
-                                    <Form.Label>Password</Form.Label>
-                                    <Form.Control type="password" placeholder="Password"/>
-                                </Form.Group>
-
-                                <Form.Group controlId="formBasicConfirmPassword">
-                                    <Form.Label>Confirm password</Form.Label>
-                                    <Form.Control type="password" placeholder="Confirm password"/>
-                                </Form.Group>
-
+                                    <Form.Group as={Col} controlId="formBasicConfirmPassword">
+                                        <Form.Label>Confirm password</Form.Label>
+                                        <Form.Control type="password" placeholder="Confirm password"/>
+                                    </Form.Group>
+                                </Form.Row>
                                 <Form.Group controlId="formBasicCheckbox">
                                     <Form.Check type="checkbox" label="Check me out"/>
                                 </Form.Group>
+
                                 <Button variant="primary" type="submit">
                                     Submit
                                 </Button>
