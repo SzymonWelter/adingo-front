@@ -1,4 +1,4 @@
-import config from 'webpack.config';
+import config from '../../webpack.config';
 
 export const userService = {
     login,

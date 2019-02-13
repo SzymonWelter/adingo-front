@@ -11,7 +11,7 @@ export class MainNav extends React.Component{
     }
 
     render() {
-        let loginFormClose = ()=> this.setState({loginFormShow: false});
+        let loginFormClose = () => this.setState({loginFormShow: false});
         return (
             <Navbar bg="dark" variant="dark" expand={"lg"} style={{position: "relative", marginBottom: 50}}>
                 <Navbar.Brand style={{position: "absolute", left: "50%", transform: "translateX(-50%)"}} href="/">
