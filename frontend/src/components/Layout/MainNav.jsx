@@ -1,6 +1,6 @@
 import React from 'react';
 import {Navbar, Nav} from "react-bootstrap";
-import {LoginForm} from './';
+import {LoginForm} from '../IntroPage';
 
 export class MainNav extends React.Component{
 
@@ -36,4 +36,4 @@ export class MainNav extends React.Component{
             </Navbar>
         );
     }
-};
+}

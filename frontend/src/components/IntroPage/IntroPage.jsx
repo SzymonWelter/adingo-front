@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import { Col, Container, Row} from "react-bootstrap";
 import 'holderjs'
 
-import {IntroCarousel, SignUpForm} from './';
+import {IntroCarousel, SignUpForm} from '..';
 class IntroPage extends Component {
     render() {
         return (
