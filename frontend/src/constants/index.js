@@ -1,1 +1,1 @@
-export * from './test.constants';
+export * from './alert.constants';
