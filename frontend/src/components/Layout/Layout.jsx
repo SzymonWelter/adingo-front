@@ -7,13 +7,15 @@ export const Layout = (props) => {
     return (
         <Container fluid>
             <Row>
-                <MainNav />
+                <Col style={{padding: 0}}>
+                    <MainNav/>
+                </Col>
             </Row>
             <Row>
                 <Col lg={0} xl={1}>
                 </Col>
                 <Col lg={12} xl={10}>
-                {props.children}
+                    {props.children}
                 </Col>
                 <Col lg={0} xl={1}>
                 </Col>
