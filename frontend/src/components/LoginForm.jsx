@@ -8,8 +8,6 @@ export class LoginForm extends React.Component {
             <Modal
                 {...this.props}
                 size={"xs"}
-                aria-labelledby="contained-modal-title-vcenter"
-                centered
             >
                 <Modal.Body>
                     <Card >
