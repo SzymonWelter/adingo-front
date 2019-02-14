@@ -14,6 +14,8 @@ class MainNav extends React.Component{
     render() {
         let loginFormClose = () => this.setState({loginFormShow: false});
         const {user} = this.props;
+        const options = ["Konto","Wyloguj"];
+
         return (
             <Navbar bg="dark" variant="dark" expand={"lg"} style={{position: "relative", marginBottom: 50}}>
                 <Navbar.Brand style={{position: "absolute", left: "50%", transform: "translateX(-50%)"}} href="/">
@@ -31,10 +33,10 @@ class MainNav extends React.Component{
                     <Nav>
                         {
                             user ?
-                        <NavDropdown title={user.username} id={"user-dropdown"}>
-                            <NavDropdown.Item>Opcja 1</NavDropdown.Item>
-                            <NavDropdown.Item>Opcja 2</NavDropdown.Item>
-                            <NavDropdown.Item>Opcja 3</NavDropdown.Item>
+                        <NavDropdown title={user.username} id={"user-dropdown"} alignRight>
+                            {options.map((x)=>
+                                <NavDropdown.Item>{x}</NavDropdown.Item>
+                            )}
                         </NavDropdown>
                         : <Nav.Link onClick={() => this.setState({ loginFormShow: true })}>
                             Zaloguj się
