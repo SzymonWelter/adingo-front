@@ -1,8 +1,9 @@
 import React from 'react';
-import {Navbar, Nav} from "react-bootstrap";
+import {Navbar, Nav, NavDropdown} from "react-bootstrap";
 import {LoginForm} from '../IntroPage';
+import {connect} from "react-redux";
 
-export class MainNav extends React.Component{
+class MainNav extends React.Component{
 
     constructor(...args){
         super(...args);
@@ -12,6 +13,7 @@ export class MainNav extends React.Component{
 
     render() {
         let loginFormClose = () => this.setState({loginFormShow: false});
+        const {user} = this.props;
         return (
             <Navbar bg="dark" variant="dark" expand={"lg"} style={{position: "relative", marginBottom: 50}}>
                 <Navbar.Brand style={{position: "absolute", left: "50%", transform: "translateX(-50%)"}} href="/">
@@ -27,9 +29,17 @@ export class MainNav extends React.Component{
                     <Nav className="mr-auto">
                     </Nav>
                     <Nav>
-                        <Nav.Link onClick={() => this.setState({ loginFormShow: true })}>
+                        {
+                            user ?
+                        <NavDropdown title={user.username} id={"user-dropdown"}>
+                            <NavDropdown.Item>Opcja 1</NavDropdown.Item>
+                            <NavDropdown.Item>Opcja 2</NavDropdown.Item>
+                            <NavDropdown.Item>Opcja 3</NavDropdown.Item>
+                        </NavDropdown>
+                        : <Nav.Link onClick={() => this.setState({ loginFormShow: true })}>
                             Zaloguj się
-                    </Nav.Link>
+                        </Nav.Link>
+                        }
                     </Nav>
                     <LoginForm show = {this.state.loginFormShow} onHide = {loginFormClose}/>
                 </Navbar.Collapse>
@@ -37,3 +47,13 @@ export class MainNav extends React.Component{
         );
     }
 }
+function mapStateToProps(state) {
+    const { auth } = state;
+    const { user } = auth;
+    return {
+        user
+    };
+}
+
+const connectedMainNav = connect(mapStateToProps)(MainNav);
+export { connectedMainNav as MainNav };
