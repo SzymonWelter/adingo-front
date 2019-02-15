@@ -1,8 +1,10 @@
 import config from '../../webpack.config';
+import {authHeader} from "../helpers";
 
 export const userService = {
     login,
-    logout
+    logout,
+    getContent
 };
 function login(username, password){
     const requestOptions = {
@@ -21,10 +23,20 @@ function login(username, password){
 function logout(){
     localStorage.removeItem('user');
 }
+
+function getContent(path){
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
+    return fetch(`${config.apiUrl}${path}`,requestOptions).then(handleResponse);
+}
+
 function handleResponse(response){
     return response.text().then(text=>{
         const data = text && JSON.parse(text);
         if(!response.ok){
+            console.log("NIE OK");
             if(response.status === 401){
                 logout();
                 location.reload(true);

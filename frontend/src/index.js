@@ -7,10 +7,11 @@ import {applyMiddleware, createStore} from "redux";
 import rootReducer from './reducers'
 import {configureFakeBackend} from "./helpers";
 import thunkMiddleware from 'redux-thunk';
-
+import { createLogger } from 'redux-logger';
 
 configureFakeBackend();
-let store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
+const loggerMiddleware = createLogger();
+let store = createStore(rootReducer, applyMiddleware(thunkMiddleware, loggerMiddleware));
 
 ReactDOM.render(
     <Provider store={store}>
