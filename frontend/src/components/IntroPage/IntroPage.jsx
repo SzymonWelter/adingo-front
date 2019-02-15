@@ -1,10 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import { Col, Container, Row} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 import 'holderjs'
 
 import {IntroCarousel, SignUpForm} from '..';
+import {userActions} from "../../actions";
+
 class IntroPage extends Component {
+    constructor(props) {
+        super(props);
+        this.props.dispatch(userActions.logout());
+    }
+
     render() {
         return (
             <Container fluid>
@@ -21,7 +28,7 @@ class IntroPage extends Component {
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps() {
     return {};
 }
 

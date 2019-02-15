@@ -2,8 +2,13 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {Card, Container} from "react-bootstrap";
 import {HomeButton, HomeRow} from './';
+import {userActions} from "../../actions";
 
 class HomePage extends Component {
+    componentDidMount() {
+        this.props.dispatch(userActions.getContent("/"));
+    }
+
     render() {
         return (
             <Container>
@@ -34,6 +39,6 @@ function mapStateToProps() {
     return {};
 }
 
-const connectedLoginPage = connect(mapStateToProps)(HomePage);
-export {connectedLoginPage as HomePage};
+const connectedHomePage = connect(mapStateToProps)(HomePage);
+export {connectedHomePage as HomePage};
 

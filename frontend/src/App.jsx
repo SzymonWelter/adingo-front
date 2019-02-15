@@ -27,8 +27,8 @@ class App extends React.Component {
                         <div className={`alert ${alert.type}`}>{alert.message}</div>
                         }
                         <PrivateRoute exact path={"/"} component={HomePage}/>
-                        <Route path={"/intro"} component={IntroPage}/>
-                        <PrivateRoute path={"/user"} component={UserPage}/>
+                        <Route exact path={"/intro"} component={IntroPage}/>
+                        <PrivateRoute exact path={"/user"} component={UserPage}/>
 
                     </div>
                 </Router>

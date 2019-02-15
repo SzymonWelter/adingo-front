@@ -1,5 +1,5 @@
 export function configureFakeBackend() {
-    let users = [{ id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' }];
+    let users = [{id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User'}];
     let realFetch = window.fetch;
     window.fetch = function (url, opts) {
         return new Promise((resolve, reject) => {
@@ -26,12 +26,19 @@ export function configureFakeBackend() {
                             lastName: user.lastName,
                             token: 'fake-jwt-token'
                         };
-                        resolve({ ok: true, text: () => Promise.resolve(JSON.stringify(responseJson)) });
+                        resolve({ok: true, text: () => Promise.resolve(JSON.stringify(responseJson))});
                     } else {
                         // else return error
                         reject('Username or password is incorrect');
                     }
 
+                    return;
+                }
+
+                if (url.endsWith('/') && opts.method === 'GET') {
+                    if (opts.headers && opts.headers.Authorization === 'Bearer fake-jwt-token')
+                        resolve({ok: true, text: () => Promise.resolve(JSON.stringify(""))});
+                    else reject('Unauthorised');
                     return;
                 }
 
