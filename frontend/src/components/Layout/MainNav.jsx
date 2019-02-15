@@ -34,8 +34,8 @@ class MainNav extends React.Component{
                         {
                             user ?
                         <NavDropdown title={user.username} id={"user-dropdown"} alignRight>
-                            {options.map((x)=>
-                                <NavDropdown.Item>{x}</NavDropdown.Item>
+                            {options.map((x, index)=>
+                                <NavDropdown.Item key={index}>{x}</NavDropdown.Item>
                             )}
                         </NavDropdown>
                         : <Nav.Link onClick={() => this.setState({ loginFormShow: true })}>
