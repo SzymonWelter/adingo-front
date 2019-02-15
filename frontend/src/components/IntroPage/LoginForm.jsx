@@ -30,7 +30,7 @@ class LoginForm extends React.Component {
         }
     }
     render() {
-        const {loggingIn, onHide, show} = this.props;
+        const {alert, loggingIn, onHide, show} = this.props;
         const {username, password, submitted} = this.state;
         return (
             <Modal
@@ -42,6 +42,9 @@ class LoginForm extends React.Component {
                     <Card >
                         <Card.Header>Logowanie</Card.Header>
                         <Card.Body>
+                            {alert.message &&
+                            <div className={`alert ${alert.type}`}>{alert.message}</div>
+                            }
                             <Form onSubmit={this.handleSubmit}>
                                 <Form.Group>
                                     <Form.Label>Email/login</Form.Label>
@@ -86,7 +89,9 @@ class LoginForm extends React.Component {
 }
 function mapStateToProps(state) {
     const { loggingIn } = state.auth;
+    const {alert} = state;
     return {
+        alert,
         loggingIn
     };
 }

@@ -12,23 +12,19 @@ class App extends React.Component {
 
         const {dispatch} = this.props;
         history.listen((location, action) => {
-            // clear alert on location change
             dispatch(alertActions.clear());
         });
     }
 
     render() {
-        const {alert} = this.props;
+
         return (
             <Layout>
                 <Router history={history}>
                     <div>
-                        {alert.message &&
-                        <div className={`alert ${alert.type}`}>{alert.message}</div>
-                        }
                         <PrivateRoute exact path={"/"} component={HomePage}/>
-                        <Route exact path={"/intro"} component={IntroPage}/>
                         <PrivateRoute exact path={"/user"} component={UserPage}/>
+                        <Route path={"/intro"} component={IntroPage}/>
 
                     </div>
                 </Router>
@@ -36,11 +32,8 @@ class App extends React.Component {
         );
     }
 }
-function mapStateToProps(state) {
-    const { alert } = state;
-    return {
-        alert
-    };
+function mapStateToProps() {
+    return {};
 }
 
 const connectedApp = connect(mapStateToProps)(App);
