@@ -4,7 +4,7 @@ import {history} from '../../helpers'
 
 export const HomeButton = ({name,href,...rest}) => {
     return (
-        <Button {...rest} style={{height: 300}} variant={"secondary"} onClick={()=>{history.push(href)}} block>
+        <Button {...rest} style={{height: 300}} variant={"deep-purple"} onClick={()=>{history.push(href)}} block>
             {name}
         </Button>
     );

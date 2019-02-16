@@ -8,6 +8,9 @@ import rootReducer from './reducers'
 import {configureFakeBackend} from "./helpers";
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
 
 configureFakeBackend();
 const loggerMiddleware = createLogger();
