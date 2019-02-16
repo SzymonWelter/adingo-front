@@ -1,11 +1,13 @@
 import React from 'react';
 import {Button} from "react-bootstrap";
 
-export const HomeButton = (props) => {
+export const HomeButton = ({name, href, ...rest}) => {
     return (
-        <Button block variant={"secondary"} style={{height: 300}}>
-            {props.name}
-        </Button>
+        <a href={href}>
+            <Button {...rest} style={{height: 300}} variant={"deep-purple"} block>
+                {name}
+            </Button>
+        </a>
     );
 };
 

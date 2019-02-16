@@ -15,9 +15,11 @@ export function auth(state = initialState, action){
                 user: action.user
             };
         case userConstants.LOGIN_FAILURE:
-            return{};
+            return {
+                user: action.error
+            };
         case  userConstants.LOGOUT:
-            return{};
+            return {};
         default:
             return state;
     }

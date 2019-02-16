@@ -1,13 +1,18 @@
 import React, {Component} from 'react';
+import {connect} from "react-redux";
+import {UserSideNav} from "./";
 
-export class UserPage extends Component {
+class UserPage extends Component {
     render() {
         return (
-            <div>
-                UserPage
-            </div>
+            <UserSideNav/>
         );
     }
 }
 
-;
+function mapStateToProps() {
+    return {};
+}
+
+const connectedUserPage = connect(mapStateToProps)(UserPage);
+export {connectedUserPage as UserPage};
