@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {userActions} from "../../actions";
 import {connect} from "react-redux";
+import {AuctionItem} from "./";
+import Row from "react-bootstrap/es/Row";
 
 class AuctionsPage extends Component {
     constructor(props){
@@ -11,10 +13,11 @@ class AuctionsPage extends Component {
     }
 
     render() {
+        const items = ["item1", "item2","item3"];
         return (
-            <div>
-                Auction Page
-            </div>
+            <Row>
+                {items.map((x,i)=><AuctionItem key={i}/>)}
+            </Row>
         );
     }
 }
