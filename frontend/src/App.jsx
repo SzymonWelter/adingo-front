@@ -1,9 +1,10 @@
 import React from 'react';
 import {Router, Route} from 'react-router-dom'
 import {history} from "./helpers";
-import {PrivateRoute, Layout, IntroPage, HomePage,UserPage} from './components'
+import {PrivateRoute, Layout, IntroPage, HomePage,UserPage,AuctionsPage} from './components'
 import {alertActions} from "./actions";
 import {connect} from "react-redux";
+
 
 
 class App extends React.Component {
@@ -24,8 +25,8 @@ class App extends React.Component {
                     <div>
                         <PrivateRoute exact path={"/"} component={HomePage}/>
                         <PrivateRoute exact path={"/user"} component={UserPage}/>
+                        <PrivateRoute exact path={"/auctions"} component={AuctionsPage} />
                         <Route path={"/intro"} component={IntroPage}/>
-
                     </div>
                 </Router>
             </Layout>

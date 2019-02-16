@@ -36,7 +36,6 @@ function handleResponse(response){
     return response.text().then(text=>{
         const data = text && JSON.parse(text);
         if(!response.ok){
-            console.log("NIE OK");
             if(response.status === 401){
                 logout();
                 location.reload(true);

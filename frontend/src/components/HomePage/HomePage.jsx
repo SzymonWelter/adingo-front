@@ -6,14 +6,14 @@ import {userActions} from "../../actions";
 
 class HomePage extends Component {
     componentDidMount() {
-        this.props.dispatch(userActions.getContent("/"));
+        this.props.dispatch(userActions.getContent(this.props.location.pathname));
     }
 
     render() {
         return (
             <Container>
                 <HomeRow xs={0} lg={1}>
-                    <HomeButton name={"Aukcje"}/>
+                    <HomeButton name={"Aukcje"} href={"/auctions"} />
                     <div> </div>
                     <HomeButton name={"Reklamy oglądane"}/>
                 </HomeRow>
