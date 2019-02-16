@@ -13,10 +13,14 @@ class AuctionsPage extends Component {
     }
 
     render() {
-        const items = ["item1", "item2","item3"];
+        const items = {
+            "item1":{description: "opis item1" , id: "id-item1"},
+            "item2":{description: "opis item2" , id: "id-item2"},
+            "item3":{description: "opis item3" , id: "id-item3"}
+        };
         return (
             <Row>
-                {items.map((x,i)=><AuctionItem key={i}/>)}
+                {Object.keys(items).map((x,i)=><AuctionItem key={i} name={x} data={items[x]}/>)}
             </Row>
         );
     }
