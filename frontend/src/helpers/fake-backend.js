@@ -37,6 +37,13 @@ export function configureFakeBackend() {
                     return;
                 }
 
+                if (url.endsWith('/auctions') && opts.method === 'GET') {
+                    if (opts.headers && opts.headers.Authorization === 'Bearer fake-jwt-token')
+                        resolve({ok: true, text: () => Promise.resolve(JSON.stringify("data"))});
+                    else reject('Unauthorised');
+                    return;
+                }
+
                 // pass through any requests not handled above
                 realFetch(url, opts).then(response => resolve(response));
 

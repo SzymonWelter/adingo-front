@@ -27,7 +27,7 @@ export class SignUpForm extends Component {
                         </Form.Group>
                     </Form.Row>
                     <Form.Row>
-                        <Form.Group as={Col} xs={12} controlId="formBasicCheckbox">
+                        <Form.Group as={Col} xs={12} >
                             <Form.Check type="checkbox" label="Akceptuje regulamin"/>
                         </Form.Group>
                         <Form.Group as={Col} xs={6} lg={5}>
@@ -35,7 +35,7 @@ export class SignUpForm extends Component {
                                 Zarejestruj się
                             </Button>
                         </Form.Group>
-                        <Form.Group as={Col} xs={6} lg={7} controlId="formBasicCheckbox">
+                        <Form.Group as={Col} xs={6} lg={7} >
                             <Form.Check type="checkbox" label="Zapamiętaj mnie"/>
                         </Form.Group>
                     </Form.Row>

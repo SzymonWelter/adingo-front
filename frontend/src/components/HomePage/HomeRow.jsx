@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Row} from "react-bootstrap";
 
 
-export const HomeRow = ({children,xs,lg}) => {
+const HomeRow = ({children,xs,lg}) => {
     return (
         <Row>
             <Col>
@@ -17,5 +17,5 @@ export const HomeRow = ({children,xs,lg}) => {
         </Row>
     );
 };
-
+export default HomeRow;
 

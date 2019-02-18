@@ -18,21 +18,21 @@ class HomePage extends Component {
                 {content.items &&
                 <Container>
                     <HomeRow xs={0} lg={1}>
-                        <HomeButton name={"Aukcje"} href={"/auctions"}/>
-                        <div></div>
-                        <HomeButton name={"Reklamy oglądane"}/>
+                        <HomeButton name={"Aukcje"} href={'/auctions'} />
+                        <div> </div>
+                        <HomeButton name={"Reklamy oglądane"} />
                     </HomeRow>
                     <HomeRow xs={0} lg={2}>
-                        <div></div>
+                        <div> </div>
                         <Card style={{textAlign: 'center', margin: 5}}>
                             <Card.Header>Punkty</Card.Header>
                             <Card.Body style={{padding: 5}}>Lp</Card.Body>
                         </Card>
-                        <div></div>
+                        <div> </div>
                     </HomeRow>
                     <HomeRow xs={0} lg={1}>
                         <HomeButton name={"Regulamin"}/>
-                        <div></div>
+                        <div> </div>
                         <HomeButton name={"Reklamy klikane"}/>
                     </HomeRow>
 
