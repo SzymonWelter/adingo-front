@@ -8,11 +8,11 @@ export const userActions = {
     getContent,
     logout
 };
-function login(username, password) {
+function login(username, password, rememberMe) {
     return dispatch => {
         dispatch(request({username}));
 
-        userService.login(username,password)
+        userService.login(username,password, rememberMe)
             .then(
                 user => {
                     dispatch(success(user));

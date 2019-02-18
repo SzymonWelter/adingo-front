@@ -12,6 +12,7 @@ class LoginForm extends React.Component {
             username: '',
             password: '',
             submitted: false,
+            rememberMe: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,10 +24,10 @@ class LoginForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         this.setState({submitted: true});
-        const {username, password} = this.state;
+        const {username, password, rememberMe} = this.state;
         const {dispatch} = this.props;
         if(username && password){
-            dispatch(userActions.login(username,password));
+            dispatch(userActions.login(username,password,rememberMe));
         }
     }
     render() {
@@ -62,7 +63,7 @@ class LoginForm extends React.Component {
                                     }
                                 </Form.Group>
                                 <Form.Group>
-                                    <Form.Check type="checkbox" label="Zapamiętaj mnie"/>
+                                    <Form.Check type="checkbox" name={"rememberMe"} label="Zapamiętaj mnie"/>
                                 </Form.Group>
                                 <Row>
                                     <Col>

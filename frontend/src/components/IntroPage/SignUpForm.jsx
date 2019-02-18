@@ -27,6 +27,9 @@ export class SignUpForm extends Component {
                         </Form.Group>
                     </Form.Row>
                     <Form.Row>
+                        <Form.Group as={Col} xs={12} controlId="formBasicCheckbox">
+                            <Form.Check type="checkbox" label="Akceptuje regulamin"/>
+                        </Form.Group>
                         <Form.Group as={Col} xs={6} lg={5}>
                             <Button variant="primary" type="submit" block>
                                 Zarejestruj się

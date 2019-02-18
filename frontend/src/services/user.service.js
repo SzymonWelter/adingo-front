@@ -6,11 +6,11 @@ export const userService = {
     logout,
     getContent
 };
-function login(username, password){
+function login(username, password, rememberMe){
     const requestOptions = {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({username, password})
+        body: JSON.stringify({username, password, rememberMe})
     };
     return fetch(`${config.apiUrl}/user/auth`,requestOptions)
         .then(handleResponse)

@@ -19,13 +19,8 @@ export function configureFakeBackend() {
                     if (filteredUsers.length) {
                         // if login details are valid return user details and fake jwt token
                         let user = filteredUsers[0];
-                        let responseJson = {
-                            id: user.id,
-                            username: user.username,
-                            firstName: user.firstName,
-                            lastName: user.lastName,
-                            token: 'fake-jwt-token'
-                        };
+                        let responseJson = { ...user, token: 'fake-jwt-token'};
+                        delete responseJson.password;
                         resolve({ok: true, text: () => Promise.resolve(JSON.stringify(responseJson))});
                     } else {
                         // else return error
