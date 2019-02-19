@@ -12,7 +12,8 @@ class LoginForm extends React.Component {
             username: '',
             password: '',
             submitted: false,
-            rememberMe: false
+            rememberMe: false,
+            redirectToRoute: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,7 +28,7 @@ class LoginForm extends React.Component {
         const {username, password, rememberMe} = this.state;
         const {dispatch} = this.props;
         if(username && password){
-            dispatch(userActions.login(username,password,rememberMe));
+            dispatch(userActions.login(username,password,rememberMe, JSON.parse(localStorage.getItem('previousRoute')).pathname));
         }
     }
     render() {

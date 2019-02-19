@@ -10,7 +10,10 @@ class IntroPage extends Component {
     constructor(props) {
         super(props);
         this.props.dispatch(userActions.logout());
+        const { from } = this.props.location.state || { from: { pathname: "/" } };
+        localStorage.setItem('previousRoute',JSON.stringify(from));
     }
+
 
     render() {
         return (

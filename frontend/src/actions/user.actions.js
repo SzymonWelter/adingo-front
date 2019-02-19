@@ -6,9 +6,10 @@ import {history} from "../helpers";
 export const userActions = {
     login,
     getContent,
+    previousRoute,
     logout
 };
-function login(username, password, rememberMe) {
+function login(username, password, rememberMe, previousRoute) {
     return dispatch => {
         dispatch(request({username}));
 
@@ -16,7 +17,7 @@ function login(username, password, rememberMe) {
             .then(
                 user => {
                     dispatch(success(user));
-                    history.push('/');
+                    history.push(previousRoute);
                 },
                 error => {
                     dispatch(failure(error));
