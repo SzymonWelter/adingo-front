@@ -1,5 +1,5 @@
 import {userConstants} from "../constants";
-
+//TODO REFACTOR CONTENT REDUCER TO LESS GENERAL REDUCERS
 export function content(state = {}, action) {
     switch (action.type) {
         case userConstants.GET_CONTENT_REQUEST:

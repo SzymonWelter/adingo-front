@@ -10,8 +10,7 @@ export class AuctionItem extends Component {
     };
 
     render() {
-        const {description, src} = this.props.data;
-        const {name} = this.props;
+        const {name,description, src} = this.props.data;
         return (
             <Col xs ={12} lg={6}>
                 <MDBCard wide style={{margin: 5}}>

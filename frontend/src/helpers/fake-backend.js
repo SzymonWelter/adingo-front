@@ -32,14 +32,19 @@ export function configureFakeBackend() {
 
                 if (url.endsWith('/') && opts.method === 'GET') {
                     if (opts.headers && opts.headers.Authorization === 'Bearer fake-jwt-token')
-                        resolve({ok: true, text: () => Promise.resolve(JSON.stringify("data"))});
+                        resolve({ok: true, text: () => Promise.resolve(JSON.stringify({response: true}))});
                     else reject('Unauthorised');
                     return;
                 }
 
                 if (url.endsWith('/auctions') && opts.method === 'GET') {
+                    const items = [
+                        {name: "item1", description: "opis item1", id: "id-item1", src: "https://dummyimage.com/600x300"},
+                        {name: "item2", description: "opis item2", id: "id-item2", src: "https://dummyimage.com/600x300"},
+                        {name: "item3", description: "opis item3", id: "id-item3", src: "https://dummyimage.com/600x300"}
+                    ];
                     if (opts.headers && opts.headers.Authorization === 'Bearer fake-jwt-token')
-                        resolve({ok: true, text: () => Promise.resolve(JSON.stringify("data"))});
+                        resolve({ok: true, text: () => Promise.resolve(JSON.stringify(items))});
                     else reject('Unauthorised');
                     return;
                 }

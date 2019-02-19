@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {Card, Container} from "react-bootstrap";
-import {HomeButton, HomeRow} from './';
+import {Card, Col, Container, Row} from "react-bootstrap";
+import {HomeButton} from './';
 import {userActions} from "../../actions";
 
 class HomePage extends Component {
@@ -15,26 +15,28 @@ class HomePage extends Component {
             <div>
                 {content.loading && <em>Loading ...</em>}
                 {content.error && <span className="text-danger">ERROR: {content.error}</span>}
-                {content.items &&
+                {content.response &&
                 <Container>
-                    <HomeRow xs={0} lg={1}>
-                        <HomeButton name={"Aukcje"} href={'/auctions'} />
-                        <div> </div>
-                        <HomeButton name={"Reklamy oglądane"} />
-                    </HomeRow>
-                    <HomeRow xs={0} lg={2}>
-                        <div> </div>
-                        <Card style={{textAlign: 'center', margin: 5}}>
-                            <Card.Header>Punkty</Card.Header>
-                            <Card.Body style={{padding: 5}}>Lp</Card.Body>
-                        </Card>
-                        <div> </div>
-                    </HomeRow>
-                    <HomeRow xs={0} lg={1}>
+                    <Row>
+                        <HomeButton name={"Aukcje"} href={'/auctions'}/>
+                        <Col xs={0} lg={1}> </Col>
+                        <HomeButton name={"Reklamy oglądane"}/>
+                    </Row>
+                    <Row>
+                        <Col> </Col>
+                        <Col xs={0} lg={2}>
+                            <Card style={{textAlign: 'center', margin: 5}}>
+                                <Card.Header>Punkty</Card.Header>
+                                <Card.Body style={{padding: 5}}>Lp</Card.Body>
+                            </Card>
+                        </Col>
+                        <Col> </Col>
+                    </Row>
+                    <Row>
                         <HomeButton name={"Regulamin"}/>
-                        <div> </div>
+                        <Col xs={0} lg={1}> </Col>
                         <HomeButton name={"Reklamy klikane"}/>
-                    </HomeRow>
+                    </Row>
 
                 </Container>
                 }
