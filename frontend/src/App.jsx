@@ -1,7 +1,7 @@
 import React from 'react';
 import {Router, Route} from 'react-router-dom'
 import {history, privateRoutes} from "./helpers";
-import {PrivateRoute, Layout, IntroPage, HomePage,UserPage,AuctionsPage} from './components'
+import {PrivateRoute, Layout, IntroPage} from './components'
 import {alertActions} from "./actions";
 import {connect} from "react-redux";
 

@@ -6,11 +6,12 @@ export const userService = {
     logout,
     getContent
 };
-function login(username, password){
+
+function login(username, password, rememberMe){
     const requestOptions = {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({username, password})
+        body: JSON.stringify({username, password, rememberMe})
     };
     return fetch(`${config.apiUrl}/user/auth`,requestOptions)
         .then(handleResponse)
@@ -33,6 +34,7 @@ function getContent(path){
 }
 
 function handleResponse(response){
+
     return response.text().then(text=>{
         const data = text && JSON.parse(text);
         if(!response.ok){

@@ -4,11 +4,12 @@ export function content(state = {}, action) {
     switch (action.type) {
         case userConstants.GET_CONTENT_REQUEST:
             return {
-                loading: true
+                loading: true,
+                name: action.name
             };
         case userConstants.GET_CONTENT_SUCCESS:
             return {
-                items: action.content
+                [state.name]: action.content
             };
         case userConstants.GET_CONTENT_FAILURE:
             return {

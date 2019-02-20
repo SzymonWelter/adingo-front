@@ -8,22 +8,22 @@ export const userActions = {
     getContent,
     logout
 };
-function login(username, password) {
+function login(username, password, rememberMe, previousRoute) {
     return dispatch => {
         dispatch(request({username}));
 
-        userService.login(username,password)
+        userService.login(username,password, rememberMe)
             .then(
                 user => {
                     dispatch(success(user));
-                    history.push('/');
+                    history.push(previousRoute);
+                    localStorage.removeItem('previousRoute');
                 },
                 error => {
                     dispatch(failure(error));
                     dispatch(alertActions.error(error));
                 }
             );
-
     };
     function request(user){return {type: userConstants.LOGIN_REQUEST, user}}
     function success(user){return {type: userConstants.LOGIN_SUCCESS, user}}
@@ -34,7 +34,7 @@ function logout(){
     return {type: userConstants.LOGOUT}
 }
 
-function getContent(path){
+function getContent(path, name){
     return dispatch =>{
         dispatch(request());
 
@@ -44,7 +44,7 @@ function getContent(path){
                 error => dispatch(failure(error))
             );
     };
-    function request(){ return{type: userConstants.GET_CONTENT_REQUEST} }
+    function request(){ return{type: userConstants.GET_CONTENT_REQUEST, name} }
     function success(content){ return{type: userConstants.GET_CONTENT_SUCCESS, content} }
     function failure(error){ return{type: userConstants.GET_CONTENT_FAILURE, error} }
 }

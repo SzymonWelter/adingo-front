@@ -5,28 +5,36 @@ import {AuctionItem} from "./";
 import Row from "react-bootstrap/es/Row";
 
 class AuctionsPage extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
+
     }
+
     componentDidMount() {
-        this.props.dispatch(userActions.getContent(this.props.location.pathname));
+        this.props.dispatch(userActions.getContent(this.props.location.pathname, "items"));
     }
 
     render() {
-        const items = {
-            "item1":{description: "opis item1" , id: "id-item1"},
-            "item2":{description: "opis item2" , id: "id-item2"},
-            "item3":{description: "opis item3" , id: "id-item3"}
-        };
+        const {loading,error,items} = this.props.content;
         return (
-            <Row>
-                {Object.keys(items).map((x,i)=><AuctionItem key={i} name={x} data={items[x]}/>)}
-            </Row>
+            <div>
+                {loading && <em>Loading ...</em>}
+                {error && <span className="text-danger">ERROR: {error}</span>}
+                {items &&
+                <Row>
+                    {items.map((x, i) => <AuctionItem key={i} data={x}/>)}
+                </Row>
+                }
+            </div>
         );
     }
 }
-function mapStateToProps() {
-    return {};
+
+function mapStateToProps(state) {
+    const {content} = state;
+    return {
+        content
+    };
 }
 
 const connectedAuctionsPage = connect(mapStateToProps)(AuctionsPage);

@@ -1,6 +1,7 @@
 import React from 'react';
 import {LoginForm} from '../IntroPage';
 import {connect} from "react-redux";
+import {history} from '../../helpers';
 import {
     MDBDropdown,
     MDBDropdownToggle,
@@ -31,12 +32,13 @@ class MainNav extends React.Component {
         return (
             <MDBNavbar color={"mdb-color"} expand={"lg"} style={{position: "relative", marginBottom: 50}}>
                 <MDBNavbarBrand style={{position: "absolute", left: "50%", transform: "translateX(-50%)"}}>
-                    <a href={"/"}>
                         <img
                             className="d-block w-100"
                             src="holder.js/200x40?text=LOGO&bg=FFEF00"
                             alt="LOGO"
-                        /></a>
+                            onClick={()=>history.push("/")}
+                            style={{cursor:"pointer"}}
+                        />
                 </MDBNavbarBrand>
                 <MDBNavbarToggler onClick={this.toggleCollapse}/>
                 <MDBCollapse isOpen={this.state.isOpen} navbar>
