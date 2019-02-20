@@ -34,7 +34,7 @@ function logout(){
     return {type: userConstants.LOGOUT}
 }
 
-function getContent(path){
+function getContent(path, name){
     return dispatch =>{
         dispatch(request());
 
@@ -44,7 +44,7 @@ function getContent(path){
                 error => dispatch(failure(error))
             );
     };
-    function request(){ return{type: userConstants.GET_CONTENT_REQUEST} }
+    function request(){ return{type: userConstants.GET_CONTENT_REQUEST, name} }
     function success(content){ return{type: userConstants.GET_CONTENT_SUCCESS, content} }
     function failure(error){ return{type: userConstants.GET_CONTENT_FAILURE, error} }
 }

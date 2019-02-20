@@ -7,16 +7,15 @@ import Row from "react-bootstrap/es/Row";
 class AuctionsPage extends Component {
     constructor(props) {
         super(props);
-        this.props.dispatch(userActions.getContent(this.props.location.pathname));
+
     }
 
     componentDidMount() {
-
+        this.props.dispatch(userActions.getContent(this.props.location.pathname, "items"));
     }
 
     render() {
         const {loading,error,items} = this.props.content;
-        console.log(loading,error,items);
         return (
             <div>
                 {loading && <em>Loading ...</em>}

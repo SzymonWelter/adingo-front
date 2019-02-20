@@ -5,17 +5,18 @@ import {HomeButton} from './';
 import {userActions} from "../../actions";
 
 class HomePage extends Component {
+
     componentDidMount() {
-        this.props.dispatch(userActions.getContent(this.props.location.pathname));
+        this.props.dispatch(userActions.getContent(this.props.location.pathname, "home"));
     }
 
     render() {
-        const {content} = this.props;
+        const {home,loading,error} = this.props.content;
         return (
             <div>
-                {content.loading && <em>Loading ...</em>}
-                {content.error && <span className="text-danger">ERROR: {content.error}</span>}
-                {content.response &&
+
+                {error && <span className="text-danger">ERROR: {error}</span>}
+
                 <Container>
                     <Row>
                         <HomeButton name={"Aukcje"} href={'/auctions'}/>
@@ -27,7 +28,10 @@ class HomePage extends Component {
                         <Col xs={0} lg={2}>
                             <Card style={{textAlign: 'center', margin: 5}}>
                                 <Card.Header>Punkty</Card.Header>
-                                <Card.Body style={{padding: 5}}>Lp</Card.Body>
+                                <Card.Body style={{padding: 5}}>
+                                    {loading && <em>Loading ...</em>}
+                                    {home && <strong>{home.points}</strong>}
+                                </Card.Body>
                             </Card>
                         </Col>
                         <Col> </Col>
@@ -39,7 +43,7 @@ class HomePage extends Component {
                     </Row>
 
                 </Container>
-                }
+
             </div>
         );
     }
@@ -47,7 +51,9 @@ class HomePage extends Component {
 
 function mapStateToProps(state) {
     const {content} = state;
-    return {content};
+    return {
+        content
+    };
 }
 
 const connectedHomePage = connect(mapStateToProps)(HomePage);

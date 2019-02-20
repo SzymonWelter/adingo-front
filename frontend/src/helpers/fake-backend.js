@@ -32,7 +32,7 @@ export function configureFakeBackend() {
 
                 if (url.endsWith('/') && opts.method === 'GET') {
                     if (opts.headers && opts.headers.Authorization === 'Bearer fake-jwt-token')
-                        resolve({ok: true, text: () => Promise.resolve(JSON.stringify({response: true}))});
+                        resolve({ok: true, text: () => Promise.resolve(JSON.stringify({points: 100}))});
                     else reject('Unauthorised');
                     return;
                 }
